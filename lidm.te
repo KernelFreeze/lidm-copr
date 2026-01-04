@@ -1,0 +1,12 @@
+policy_module(lidm, 1.0.0)
+
+# Minimal SELinux policy module for lidm.
+#
+# This module intentionally ships *no* new types and *no* allow rules.
+# All SELinux integration is done via file context labeling in the
+# accompanying `lidm.fc`, which assigns lidm files/directories to
+# existing Fedora SELinux types (e.g. xdm_exec_t, xdm_etc_t, xdm_runtime_t).
+#
+# If lidm later needs additional SELinux permissions beyond what the
+# existing xdm domain provides, introduce a dedicated domain (e.g.
+# lidm_t/lidm_exec_t) and add rules here based on AVC denials.

@@ -1,0 +1,23 @@
+#%PAM-1.0
+#
+# Default PAM stack for lidm (TUI display manager).
+# Install this file as /etc/pam.d/lidm
+
+auth        substack    password-auth
+auth        include     postlogin
+
+account     required    pam_nologin.so
+account     include     password-auth
+
+password    include     password-auth
+
+# Ensure the login session is properly labeled/managed under SELinux
+session     required    pam_selinux.so close
+session     required    pam_loginuid.so
+session     optional    pam_keyinit.so force revoke
+
+session     include     password-auth
+session     include     postlogin
+
+session     required    pam_selinux.so open
+session     optional    pam_systemd.so

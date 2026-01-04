@@ -1,0 +1,7 @@
+# SELinux file contexts for lidm (display manager)
+#
+# Minimal labeling: treat lidm as a display-manager entrypoint by assigning it
+# the existing Fedora SELinux type used for display manager executables.
+
+#/usr/bin is %{_bindir} on Fedora
+/usr/bin/lidm    --    gen_context(system_u:object_r:xdm_exec_t,s0)
