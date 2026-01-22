@@ -1,5 +1,5 @@
 Name:           lidm
-Version:        1.2.3
+Version:        2.0.0
 Release:        %autorelease
 Summary:        A fully colorful customizable TUI display manager made in C
 
